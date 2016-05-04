@@ -1,0 +1,118 @@
+/* TimeEZ.css
+ * Andrew Ribeiro
+ * May 3, 2016
+**/
+
+#logo
+{
+text-align:center; margin-top: 1em;
+}
+
+#content
+{
+    text-align:center;
+}
+
+#timeControl
+{
+    width: 388px;margin-left: auto; margin-right: auto; margin-top: 1em;
+}
+
+.startButton
+{
+    float: left;
+    width:90px;
+}
+
+#timerOutput
+{
+    width: 285px;height: 45px; float: right; text-align: right;
+    font-size:30px;
+}
+
+#timeLog
+{
+    width: 388px; height:300px; margin-left: auto; margin-right: auto; margin-top: 20px; background-color: #e9e6e7;
+    clear:both; border: solid medium #f4f1f2; overflow: scroll;
+}
+
+.timeEntry
+{
+    border: dashed thin rgba(0, 22, 112, 0.11); text-align: left;
+    padding:3px; color:#2c368b; height: 35px; font-size: 20px; margin-bottom: 8px;
+    cursor: pointer;
+
+}
+
+.timeEntryTime
+{
+    float: left; font-size: 15px; line-height:30px;
+}
+
+.timeEntryDuration
+{
+    float:right; color:#68a751;
+}
+
+#kexp
+{
+    margin-top: 10px;
+}
+
+#newSessionBar
+{
+    margin-left: auto; margin-right: auto;
+    width:388px;
+}
+
+#newSessionBar .popover{
+    width:400px;
+    height:90px;
+}
+
+#sessionNameIn{
+    width:185px;
+    float: left;
+}
+
+#createSessionName{
+    float: right;
+    height: 33px;
+}
+
+.timeSession
+{
+    text-align: left;
+    padding:5px;
+    border: dotted medium #4e97ea; text-align: left;
+    margin-bottom: 5px;
+}
+
+.timeSession .timeEntry
+{
+    margin-left: 20px;
+
+}
+
+.sessionName
+{
+    font-size: 16px;
+}
+
+.sessionTags
+{
+    clear: both;
+}
+
+.sessionTagIn
+{
+    height: 20px;
+    width:320px;
+}
+
+#defaultTimeLogMessage
+{
+    font-size:24px;
+    color: #b7b5b7;
+    margin-top: 130px;
+}

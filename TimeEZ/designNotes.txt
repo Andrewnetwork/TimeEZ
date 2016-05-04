@@ -1,0 +1,52 @@
+Andrew Ribeiro
+May 3, 2016
+TimeEZ
+
+When you visit the site, you will immediately be able to start tracking your time without creating a login.
+We will use cookies to keep the tracking information. We will give users an option to save to a database by making an
+account.
+
+We can use the google calendar API
+
+
+
+================ Rejected Code ===============================
+
+<input class="sessionTagIn" type="text" class="form-control" value="00:00:00">
+
+<div class="sessionTags">Tags: <button type="button" class="btn btn-success btn-xs">Add Tags</button> </div>
+
+
+var seconds = duration % 60
+var minutes = Math.floor(duration / 60);
+var hours   = Math.floor(duration / (60 * 60));
+
+
+
+
+
+function hideAlert(alertID){
+    setTimeout(function () {
+        $(alertID).hide()
+    }, 5000);
+}
+
+
+function slowFadeOut( parent )
+{
+    var fn = function () {
+        if(saved == null) {
+            parent.stop().fadeOut();
+            parent.fadeIn(100);
+            saved = true
+        }
+    }
+
+    parent.fadeOut(10000);
+    parent.click(fn);
+
+}
+
+setTimeout(function () {
+    slowFadeOut($("#accountAlert"))
+}, 2000);
