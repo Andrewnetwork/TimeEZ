@@ -44,9 +44,15 @@ text-align:center; margin-top: 1em;
 
 }
 
+div.timeEntry:hover
+{
+    background-color: #f5f3f5;
+}
+
 .timeEntryTime
 {
     float: left; font-size: 15px; line-height:30px;
+    z-index: 500;
 }
 
 .timeEntryDuration
@@ -86,6 +92,12 @@ text-align:center; margin-top: 1em;
     padding:5px;
     border: dotted medium #4e97ea; text-align: left;
     margin-bottom: 5px;
+    cursor: pointer;
+}
+
+div.timeSession:hover
+{
+    background-color: #f5f3f5;
 }
 
 .timeSession .timeEntry

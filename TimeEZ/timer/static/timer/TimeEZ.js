@@ -15,11 +15,14 @@ var preState = true;
 var storageFunction = null;
 
 // Elements are time structures.
+// Null elements are left in place to keep the ordering of the elements.
+// Nulls are removed when saving the data.
 var timeStorageState = [];
 
+// Saves current time session state.
 window.onbeforeunload = function(){
    if(!currentTimeSessionObj.isEmpty()) {
-        timeStorageState.push(currentTimeSessionObj);
+        //timeStorageState.push(currentTimeSessionObj);
         storageFunction();
    }
 }
@@ -32,7 +35,9 @@ function TimeStructure (timeSessionName) {
     this.timeEntries = [];
 
     this.addEntry = function (startDate,endDate,duration) {
-        this.timeEntries.push(new TimeEntry(startDate,endDate,duration));
+        var ne = new TimeEntry(startDate,endDate,duration);
+        this.timeEntries.push(ne);
+        return ne;
     };
 
     this.getEntries = function () {
@@ -50,22 +55,6 @@ function TimeStructure (timeSessionName) {
     }
 }
 
-function constructFromSeralized(obj)
-{
-    ts = new TimeStructure(obj.sessionName);
-
-    // Turn the date objects back to Date().
-    ts.timeEntries = obj.timeEntries;
-
-    obj.timeEntries.forEach(function (timeEntry) {
-
-        timeEntry.startTime = new Date(timeEntry.startTime);
-        timeEntry.endDate = new Date(timeEntry.endDate);
-    });
-
-    return ts;
-}
-
 
 // Serlizable
 function TimeEntry(startDate,endDate,duration) {
@@ -76,6 +65,9 @@ function TimeEntry(startDate,endDate,duration) {
 }
 
 $(document).ready(function() {
+
+    // Enable the popver plugin. Bootsrap 3.
+    $("[data-toggle=popover]").popover();
 
     //============= LOCAL STORAGE ==================
     if(typeof(Storage) !== "undefined") {
@@ -91,18 +83,30 @@ $(document).ready(function() {
 
             //Populate the time log based upon the loaded state.
             populateTimeLog( timeStorageState, "#timeLog" );
+
+            if(timeStorageState.length > 0){
+                hideStartText();
+            }
         }
 
         // Local storage is enabled. Add the storage function.
         // Call this to set the timeStorageState to our current state.
         storageFunction = function () {
-            localStorage.setItem("timeStorageState",JSON.stringify(timeStorageState));
+            //Let's remove null entries by building a new list.
+            noNullState = [];
+            timeStorageState.forEach(function (entry) {
+                if(entry != null){
+                    noNullState.push(entry)
+                }
+
+            });
+
+            localStorage.setItem("timeStorageState",JSON.stringify(noNullState));
         }
 
     } else {
         // We don't have any local storage.
-        storageFunction = function(ar1,ar2){
-            
+        storageFunction = function(){
             alert("Could not store local data.");
         }
         
@@ -110,8 +114,6 @@ $(document).ready(function() {
     }
     //===========================================================
 
-    // Enable the popver plugin. Bootsrap 3.
-    $("[data-toggle=popover]").popover();
     
     //************ EVENT HANDLERS ***********************//
     $("#actionButton").click(function () {
@@ -128,29 +130,20 @@ $(document).ready(function() {
 
             durationString = $("#timerOutput").val();
 
-            var dateStr = padDigits(startTime.getMonth(),2)+"/"+padDigits(startTime.getDay(),2)+"/"+padDigits(startTime.getFullYear(),2)+" | "
-                +padDigits(startTime.getHours(),2)+":"+padDigits(startTime.getMinutes(),2)+":"+padDigits(startTime.getSeconds(),2) +" - "
-                 +padDigits(endTime.getHours(),2)+":"+padDigits(endTime.getMinutes(),2)+":"+padDigits(endTime.getSeconds(),2);
-
-
-            var entry = '<div class="timeEntry">\
-            <div class="timeEntryTime">'+dateStr+'</div>\
-            <div class="timeEntryDuration">'+durationString+'</div>\
-            </div>';
-
-
             if(timeSessionActive){
 
-                currentTimeSessionObj.addEntry(startTime,endTime,durationString);
+                var ne = currentTimeSessionObj.addEntry(startTime,endTime,durationString);
 
-                $("#ts"+currentTimeSessionID)
-                    .find(".timeSessionLog").prepend(entry);
+                displayNewTime(ne,$("#ts"+(currentTimeSessionID-1))
+                    .find(".timeSessionLog"),currentTimeSessionID-1,false,false);
 
             }else{
-                $(entry).prependTo("#timeLog");
                 ts = new TimeStructure(null);
                 ts.addEntry(startTime,endTime,durationString);
                 timeStorageState.push(ts);
+
+                displayNewTime(ts.getEntries()[0], "#timeLog", timeStorageState.length-1,true, true);
+
                 storageFunction();
             }
 
@@ -175,14 +168,14 @@ $(document).ready(function() {
 
             timerCounting = true;
 
-            $("#defaultTimeLogMessage").fadeOut(1000);
+            hideStartText();
         }
 
     });
 
     $(document).on('click', "#createSessionName", function() {
 
-        currentTimeSessionID++;
+
 
         sessionName = $("#sessionNameIn").val();
 
@@ -210,6 +203,9 @@ $(document).ready(function() {
 
         currentTimeSessionObj = new TimeStructure(sessionName);
 
+        timeStorageState.push(currentTimeSessionObj);
+
+        currentTimeSessionID++;
 
     });
 
@@ -237,25 +233,64 @@ $(document).ready(function() {
         }
     });
 
-    
-    
     //************ END EVENT HANDLERS ***********************//
 
 });
 
+function openModal(stateID){
+    // The stateID is the index at which the object is found in the timeStorageState
+    obj = timeStorageState[stateID];
+    
+    if(obj.sessionName == null){
+        // Single Time, not a session.
+        $("#deleteTime").unbind("click");
+        $("#deleteTime").click(function () {
+         
+            delete timeStorageState[stateID];
+            storageFunction();
+            $("#te"+stateID).remove();
+            // Hide active modal.
+            $('.modal.in').modal("hide");
+            console.log("Delete Time")
+        });
 
-function displayNewTime(timeEntry, parentID){
+    }else{
+        // A session.
+        $("#deleteSession").unbind("click");
+        $("#deleteSession").click(function () {
+         
+            delete timeStorageState[stateID];
+            storageFunction();
+            $("#ts"+stateID).remove();
+
+            // Hide active modal.
+            $('.modal.in').modal("hide");
+            console.log("Delete Time")
+        });
+    }
+    
+}
+
+function displayNewTime(timeEntry, parentID, stateID,includeDateStr, isSingluar){
 
     var startTime      = timeEntry.startTime;
     var endTime        = timeEntry.endDate;
     var durationString = timeEntry.duration;
+    var timeLabel        = '<button type="button" class="btn btn-success btn-xs">Create Label</button>';
 
-    var dateStr = padDigits(startTime.getMonth(),2)+"/"+padDigits(startTime.getDay(),2)+"/"+padDigits(startTime.getFullYear(),2)+" | "
-            +padDigits(startTime.getHours(),2)+":"+padDigits(startTime.getMinutes(),2)+":"+padDigits(startTime.getSeconds(),2) +" - "
-             +padDigits(endTime.getHours(),2)+":"+padDigits(endTime.getMinutes(),2)+":"+padDigits(endTime.getSeconds(),2);
+    if(includeDateStr) {
+        timeLabel  = padDigits(startTime.getMonth(), 2) + "/" + padDigits(startTime.getDay(), 2) + "/" + padDigits(startTime.getFullYear(), 2) + " | "
+            + padDigits(startTime.getHours(), 2) + ":" + padDigits(startTime.getMinutes(), 2) + ":" + padDigits(startTime.getSeconds(), 2) + " - "
+            + padDigits(endTime.getHours(), 2) + ":" + padDigits(endTime.getMinutes(), 2) + ":" + padDigits(endTime.getSeconds(), 2);
+    }
+    // Only include a modal on an indivudal time entry, otherwise the session modal will
+    // be triggered upon clicking individual times in a session.
+    var modalStr ='<div class="timeEntry" id="te'+stateID+'">';
+    if(isSingluar){
+        modalStr = '<div data-toggle="modal" draggable="true" id="te'+stateID+'" onclick="openModal('+stateID+')" data-target="#singeTimeModal" class="timeEntry">';
+    }
 
-    var entry = '<div class="timeEntry">\
-    <div class="timeEntryTime">'+dateStr+'</div>\
+    var entry = modalStr+ '<div class="timeEntryTime">'+timeLabel+'</div>\
     <div class="timeEntryDuration">'+durationString+'</div>\
     </div>';
 
@@ -266,47 +301,66 @@ function displayNewTime(timeEntry, parentID){
 
 function populateTimeLog(state,timeLogID){
 
+    stateCounter = 0;
 
     state.forEach(function (timeState) {
+        if(timeState != null) {
+            if (timeState.sessionName == null) {
+                // Restore objects from serlized state.
+                timeState = constructFromSeralized(constructFromSeralized(timeState));
 
-        console.log(timeState);
-        if(timeState.sessionName == null){
-            // Restore objects from serlized state.
-            timeState = constructFromSeralized(constructFromSeralized(timeState));
+                // We are not dealing with a time sesssion.
 
-            // We are not dealing with a time sesssion.
+                entry = timeState.getEntries()[0];
+                displayNewTime(entry, timeLogID, stateCounter,true, true);
+            }
+            else {
+                // Dealing with a time session.
+                timeState = constructFromSeralized(constructFromSeralized(timeState));
+                entryies = timeState.getEntries();
 
-            entry = timeState.getEntries()[0];
-            displayNewTime(entry,timeLogID);
+                ts = createTimeSessionLogHTML(currentTimeSessionID, timeState.sessionName);
+
+                $(ts).prependTo("#timeLog");
+
+                entryies.forEach(function (entry) {
+                    displayNewTime(entry, $("#ts" + currentTimeSessionID).find(".timeSessionLog"), stateCounter,false, false);
+                });
+
+                currentTimeSessionID++;
+            }
+
+            stateCounter++
         }
-        else{
-            // Dealing with a time session.
-            timeState = constructFromSeralized(constructFromSeralized(timeState));
-            entryies = timeState.getEntries();
-
-
-            ts = createTimeSessionLogHTML(currentTimeSessionID,timeState.sessionName);
-
-            $(ts).prependTo("#timeLog");
-
-
-
-            entryies.forEach(function (entry) {
-                  displayNewTime(entry,$("#ts"+currentTimeSessionID).find(".timeSessionLog"));
-            });
-
-            console.log($("#ts"+currentTimeSessionID));
-
-
-
-            currentTimeSessionID++;
-            //displayNewTime(entry,timeLogID);
-        }
-
 
     });
 
 }
+function constructFromSeralized(obj)
+{
+    ts = new TimeStructure(obj.sessionName);
+
+    // Turn the date objects back to Date().
+    ts.timeEntries = obj.timeEntries;
+
+    obj.timeEntries.forEach(function (timeEntry) {
+
+        timeEntry.startTime = new Date(timeEntry.startTime);
+        timeEntry.endDate = new Date(timeEntry.endDate);
+    });
+
+    return ts;
+}
+
+function createTimeSessionLogHTML(currentTimeSesID,sessionName) {
+    var ts = '<div ondrop="drop(event)" ondragover="allowDrop(event)" onclick="openModal('+currentTimeSesID+')" class="timeSession" data-toggle="modal" data-target="#sessionModal" id="ts'+currentTimeSesID+'">';
+        ts += '<div class="sessionName">'+sessionName+'</div>';
+        ts += '<div class="timeSessionLog"></div>';
+        ts += "</div>";
+
+    return ts;
+}
+
 
 
 /* ticker()
@@ -370,18 +424,32 @@ function ticker()
     $("#timerOutput").val(hoursPadding+hours+":"+minutesPadding+minutes+":"+secondsPadding+seconds);
 }
 
-function createTimeSessionLogHTML(currentTimeSesID,sessionName) {
-    var ts = '<div class="timeSession" id="ts'+currentTimeSesID+'">';
-        ts += '<div class="sessionName">'+sessionName+'</div>';
-        ts += '<div class="timeSessionLog"></div>';
-        ts += "</div>";
-
-    return ts;
-}
-
 /* padDigits(number, digits)
  * Pads number to the left by '0' n digits.
  */
 function padDigits(number, digits) {
     return Array(Math.max(digits - String(number).length + 1, 0)).join(0) + number;
+}
+
+function hideStartText() {
+
+    $("#defaultTimeLogMessage").fadeOut(1000);
+
+}
+
+
+//Drag and drop
+function allowDrop(ev) {
+    ev.preventDefault();
+}
+
+function drag(ev) {
+    ev.dataTransfer.setData("text", ev.target.id);
+}
+
+function drop(ev) {
+    ev.preventDefault();
+    var data = ev.dataTransfer.getData("id");
+    console.log($(ev.target).parent());
+    $(ev.target).parent().append("JJ");
 }

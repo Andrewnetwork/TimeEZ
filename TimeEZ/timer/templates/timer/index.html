@@ -6,62 +6,100 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+
     <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
     <!-- jQuery library -->
     <script src="{% static 'timer/bootstrap/jquery.min.js'%}"></script>
     <!-- Latest compiled JavaScript -->
     <script src="{% static 'timer/bootstrap/bootstrap.min.js'%}"></script>
+    <!-- jQuery UI !--->
+    <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
 
+    <!-- Custom CSS and JS ---->
     <link rel="stylesheet" href="{% static 'timer/TimeEZ.css'%}">
     <script src="{% static 'timer/TimeEZ.js' %}"></script>
 
+    <!-- FavIcon !--->
     <link rel="shortcut icon" href="{% static 'timer/favicon.ico' %}" type="image/x-icon">
     <link rel="icon" href="{% static 'timer/favicon.ico' %}" type="image/x-icon">
 
     <title>TimeEZ | Simple, Beautiful, Robust Time Management </title>
-
-
-
 </head>
 <body>
-
-<div id="logo">
-    <img src="{% static 'timer/timeEZ.png' %}" />
-</div>
-
-<div id="content">
-    <div id="timeControl">
-        <button id="actionButton" type="button" class="btn btn-success btn-lg startButton">Start</button>
-        <input contenteditable="false" id="timerOutput" type="text" class="form-control" id="timeOut" value="00:00:00">
-    </div>
-    <br/><br/>
-    <div id="timeLog">
-        <div id="defaultTimeLogMessage">Start Timing</div>
-    </div>
-    <div id="newSessionBar">
-        <button data-toggle="popover" data-placement="top" title="Name New Session"
-                data-html="true" data-content='<input id="sessionNameIn" type="text" class="form-control" /><button id="createSessionName" type="button" class="btn btn-success btn-sm">Create</button>'
-                id="newSession" type="button" class="btn btn-primary btn-block">
-            New Time Session
-        </button>
+    <div id="logo">
+        <img src="{% static 'timer/timeEZ.png' %}" />
     </div>
 
-    <div id="kexp">
-        <a href="http://www.kexp.io" target="_blank">
-            <img src="{% static 'timer/kexp.png' %}" />
-        </a>
+    <div id="content">
+        <div id="timeControl">
+            <button id="actionButton" type="button" class="btn btn-success btn-lg startButton">Start</button>
+            <input contenteditable="false" id="timerOutput" type="text" class="form-control" id="timeOut" value="00:00:00">
+        </div>
+        <br/><br/>
+        <div id="timeLog" >
+            <div id="defaultTimeLogMessage">Start Timing</div>
+        </div>
+        <div id="newSessionBar">
+            <button data-toggle="popover" data-placement="top" title="Name New Session"
+                    data-html="true" data-content='<input id="sessionNameIn" type="text" class="form-control" /><button id="createSessionName" type="button" class="btn btn-success btn-sm">Create</button>'
+                    id="newSession" type="button" class="btn btn-primary btn-block">
+                New Time Session
+            </button>
+        </div>
+
+        <div id="kexp">
+            <a href="http://www.kexp.io" target="_blank">
+                <img src="{% static 'timer/kexp.png' %}" />
+            </a>
+        </div>
     </div>
-</div>
 
+    <!--- Show only if the user is not logged in !---->
+    <div id="accountAlert" style="position: absolute; bottom: 0px; right: 5px; cursor: pointer;" class="alert alert-info alert-dismissible">
+        <strong>Save your stuff? </strong>&nbsp;
+        <button type="button" class="btn btn-primary">Make Account</button>
+        <button type="button" class="btn btn-success">Login</button>
+        <a class="close" onclick="$('.alert').fadeOut(500)">×</a>
+    </div>
 
-<!--- Show only if the user is not logged in !---->
-<div id="accountAlert" style="position: absolute; bottom: 0px; right: 5px; cursor: pointer;" class="alert alert-info alert-dismissible">
-    <strong>Save your stuff? </strong>&nbsp;
-    <button type="button" class="btn btn-primary">Make Account</button>
-    <button type="button" class="btn btn-success">Login</button>
-    <a class="close" onclick="$('.alert').fadeOut(500)">×</a>
-</div>
+    <!-- Modal Definitions !---->
+    <div class="modal fade " id="singeTimeModal" role="dialog">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Modal Header</h4>
+        </div>
+        <div class="modal-body">
+          <p>This is a large modal.</p>
+        </div>
+        <div class="modal-footer">
+            <button type="button" id="deleteTime" class="btn btn-danger">Delete Time</button>
+            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+    </div>
 
+    <!-- Time Session Modal !-->
+    <div class="modal fade" id="sessionModal" role="dialog">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Session Model</h4>
+        </div>
+        <div class="modal-body">
+          <p>This is a large modal.</p>
+        </div>
+        <div class="modal-footer">
+            <button type="button" id="deleteSession" class="btn btn-danger">Delete Session</button>
+            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+    </div>
 </body>
 </html>
