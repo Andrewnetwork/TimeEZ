@@ -8,7 +8,14 @@ account.
 
 We can use the google calendar API
 
+manifest="{% static 'timer/TimeEZOffline.appcache' %}"
+manifest="{% static 'timer/TimeEZOffline.appcache' %}
+============= Json Lang ======================
 
+
+{
+
+}
 
 ================ Rejected Code ===============================
 

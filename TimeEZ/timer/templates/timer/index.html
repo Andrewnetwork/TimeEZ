@@ -1,17 +1,19 @@
 <!DOCTYPE html>
+
+{% load staticfiles %}
 <html lang="en">
+
 <head>
-    {% load staticfiles %}
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
     <!-- jQuery library -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+    <script src="{% static 'timer/bootstrap/jquery.min.js'%}"></script>
     <!-- Latest compiled JavaScript -->
-    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+    <script src="{% static 'timer/bootstrap/bootstrap.min.js'%}"></script>
 
-    <link rel="stylesheet" href="{% static 'timer/TimeEZ.css' %}">
+    <link rel="stylesheet" href="{% static 'timer/TimeEZ.css'%}">
     <script src="{% static 'timer/TimeEZ.js' %}"></script>
 
     <link rel="shortcut icon" href="{% static 'timer/favicon.ico' %}" type="image/x-icon">
@@ -31,7 +33,7 @@
 <div id="content">
     <div id="timeControl">
         <button id="actionButton" type="button" class="btn btn-success btn-lg startButton">Start</button>
-        <input id="timerOutput" type="text" class="form-control" id="timeOut" value="00:00:00">
+        <input contenteditable="false" id="timerOutput" type="text" class="form-control" id="timeOut" value="00:00:00">
     </div>
     <br/><br/>
     <div id="timeLog">
