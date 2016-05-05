@@ -20,10 +20,28 @@ var storageFunction = null;
 var timeStorageState = [];
 
 // Saves current time session state.
+// Called when the window is closing.
 window.onbeforeunload = function(){
-   if(!currentTimeSessionObj.isEmpty()) {
-        storageFunction();
+   if(timeStorageState.length > 0 && timerCounting) {
+
+       // For single times.
+       endTime = new Date();
+       durationString = $("#timerOutput").val();
+
+       ts = new TimeStructure(null);
+       ts.addEntry(startTime,endTime,durationString);
+       alert(ts);
+       timeStorageState.push(ts);
    }
+
+    // Prevent the storage of empty states.
+    if(timeStorageState[timeStorageState.length-1].sessionName != null &&
+        timeStorageState[timeStorageState.length-1].getEntries().length <= 0)
+    {
+        delete timeStorageState[timeStorageState.length-1];
+    }
+
+    storageFunction();
 }
 
 // timeSessionName = null if this isn't a time session.
@@ -115,6 +133,8 @@ $(document).ready(function() {
 
     
     //************ EVENT HANDLERS ***********************//
+
+    //Click start or stop.
     $("#actionButton").click(function () {
         if(timerCounting)
         {
@@ -172,6 +192,7 @@ $(document).ready(function() {
 
     });
 
+    // Button in popover window for creating a nammed session.
     $(document).on('click', "#createSessionName", function() {
 
 
@@ -189,10 +210,11 @@ $(document).ready(function() {
         ts = createTimeSessionLogHTML(timeStorageState.length-1,sessionName);
 
 
+
         $("#newSession").popover('hide');
 
         // Put the name of the time session and session area in the time log.
-        $(ts).prependTo("#timeLog");
+        $(ts).prependTo("#timeLog").addClass("active");
 
         // Change button to end time session.
         $("#newSession").removeClass("btn-primary");
@@ -207,6 +229,7 @@ $(document).ready(function() {
 
     });
 
+    // Click the bottom End Session or New Time Session button.
     $(document).on('click', "#newSession", function() {
 
         //Time session is active. End it.
@@ -217,9 +240,12 @@ $(document).ready(function() {
 
             $("#newSession").popover('enable');
 
+            // The last element in the timeStorageState is the current one.
+            $("#ts" + (timeStorageState.length-1)).removeClass("active");
+
             if(currentTimeSessionObj.isEmpty()) {
                 // We are ending the time session, but have no times in it. Delete the session.
-                $("#ts" + currentTimeSessionID).fadeOut(500);
+                $("#ts" + (timeStorageState.length-1)).fadeOut(500);
             }else{
                 storageFunction();
             }
@@ -248,7 +274,6 @@ function openModal(stateID){
             $("#te"+stateID).remove();
             // Hide active modal.
             $('.modal.in').modal("hide");
-            console.log("Delete Time")
         });
 
     }else{
@@ -262,8 +287,23 @@ function openModal(stateID){
 
             // Hide active modal.
             $('.modal.in').modal("hide");
-            console.log("Delete Time")
+            
+            
         });
+
+        $("#makeActiveSession").unbind("click");
+        $("#makeActiveSession").click(function () {
+
+            currentTimeSessionObj = timeStorageState[stateID];
+            timeSessionActive = true;
+            $("#ts"+stateID).addClass("active");
+
+            // Hide active modal.
+            $('.modal.in').modal("hide");
+
+        });
+        
+        $("#sessionTitle").html(timeStorageState[stateID].sessionName);
     }
     
 }
@@ -304,7 +344,7 @@ function populateTimeLog(state,timeLogID){
         if(timeState != null) {
             if (timeState.sessionName == null) {
                 // Restore objects from serlized state.
-                timeState = constructFromSeralized(constructFromSeralized(timeState));
+                timeState = constructFromSeralized(timeState);
 
                 // We are not dealing with a time sesssion.
 
@@ -313,8 +353,11 @@ function populateTimeLog(state,timeLogID){
             }
             else {
                 // Dealing with a time session.
-                timeState = constructFromSeralized(constructFromSeralized(timeState));
+
+                timeStorageState[stateCounter] = constructFromSeralized(timeState);
+                timeState                      = timeStorageState[stateCounter];
                 entryies = timeState.getEntries();
+
 
                 ts = createTimeSessionLogHTML(stateCounter, timeState.sessionName);
 

@@ -97,9 +97,15 @@ div.timeSession:hover
 {
     text-align: left;
     padding:5px;
-    border: dotted medium #4e97ea; text-align: left;
+    border: dotted medium #4e97ea;
+    text-align: left;
     margin-bottom: 5px;
     cursor: pointer;
+}
+
+.timeSession.active
+{
+    border: dotted medium #ffc920;
 }
 
 .timeSession .timeEntry

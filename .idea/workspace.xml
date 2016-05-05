@@ -2,9 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="07654d09-8a83-4e04-8c26-f388fac048bd" name="Default" comment="">
+      <change type="DELETED" beforePath="$PROJECT_DIR$/TimeEZ/timer/static/timer/timeEZ.png" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/TimeEZ/timer/static/timer/TimeEZ.css" afterPath="$PROJECT_DIR$/TimeEZ/timer/static/timer/TimeEZ.css" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/TimeEZ/timer/static/timer/TimeEZ.js" afterPath="$PROJECT_DIR$/TimeEZ/timer/static/timer/TimeEZ.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/TimeEZ/timer/templates/timer/index.html" afterPath="$PROJECT_DIR$/TimeEZ/timer/templates/timer/index.html" />
     </list>
     <ignored path="Schedule.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -29,15 +31,21 @@
       <file leaf-file-name="TimeEZ.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/TimeEZ/timer/static/timer/TimeEZ.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="315">
-              <caret line="135" column="68" selection-start-line="135" selection-start-column="68" selection-end-line="135" selection-end-column="68" />
+            <state relative-caret-position="345">
+              <caret line="357" column="80" selection-start-line="357" selection-start-column="80" selection-end-line="357" selection-end-column="80" />
               <folding>
                 <element signature="e#0#46#0" expanded="false" />
-                <element signature="e#1597#2721#0" expanded="false" />
+                <element signature="e#577#1183#0" expanded="false" />
+                <element signature="e#631#888#0" expanded="false" />
+                <element signature="e#2164#3288#0" expanded="false" />
+                <element signature="e#5339#6215#0" expanded="false" />
+                <element signature="e#6337#7121#0" expanded="false" />
+                <element signature="n#!!block;n#displayNewTime#0" expanded="false" />
+                <element signature="n#!!block;n#createTimeSessionLogHTML#0" expanded="false" />
                 <element signature="n#!!block;n#ticker#0" expanded="false" />
                 <element signature="n#!!block;n#padDigits#0" expanded="false" />
                 <element signature="n#!!block;n#hideStartText#0" expanded="false" />
-                <marker date="1462454482000" expanded="true" signature="8480:8600" placeholder="..." />
+                <marker date="1462470072000" expanded="true" signature="9752:9872" placeholder="..." />
               </folding>
             </state>
           </provider>
@@ -46,8 +54,8 @@
       <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/TimeEZ/timer/templates/timer/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="345">
-              <caret line="23" column="22" selection-start-line="23" selection-start-column="22" selection-end-line="23" selection-end-column="22" />
+            <state relative-caret-position="376">
+              <caret line="94" column="39" selection-start-line="94" selection-start-column="39" selection-end-line="94" selection-end-column="39" />
               <folding>
                 <element signature="n#style#0;n#div#2;n#body#0;n#html#0;n#!!top" expanded="true" />
               </folding>
@@ -68,8 +76,8 @@
       <file leaf-file-name="TimeEZ.css" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/TimeEZ/timer/static/timer/TimeEZ.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="74">
-              <caret line="39" column="18" selection-start-line="39" selection-start-column="18" selection-end-line="39" selection-end-column="18" />
+            <state relative-caret-position="1230">
+              <caret line="107" column="33" selection-start-line="107" selection-start-column="33" selection-end-line="107" selection-end-column="33" />
               <folding />
             </state>
           </provider>
@@ -112,8 +120,8 @@
         <option value="$PROJECT_DIR$/TimeEZ/timer/static/timer/TimeEZOffline.appcache" />
         <option value="$PROJECT_DIR$/TimeEZ/TimeEZ/urls.py" />
         <option value="$PROJECT_DIR$/TimeEZ/designNotes.txt" />
-        <option value="$PROJECT_DIR$/TimeEZ/timer/templates/timer/index.html" />
         <option value="$PROJECT_DIR$/TimeEZ/timer/static/timer/TimeEZ.css" />
+        <option value="$PROJECT_DIR$/TimeEZ/timer/templates/timer/index.html" />
         <option value="$PROJECT_DIR$/TimeEZ/timer/static/timer/TimeEZ.js" />
       </list>
     </option>
@@ -124,8 +132,8 @@
     <detection-done>true</detection-done>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="204" />
-    <option name="y" value="23" />
+    <option name="x" value="100" />
+    <option name="y" value="87" />
     <option name="width" value="1093" />
     <option name="height" value="731" />
   </component>
@@ -157,134 +165,7 @@
       <pane id="Scratches" />
       <pane id="Scope" />
       <pane id="ProjectPane">
-        <subPane>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="TimeEZ" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="External Libraries" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ExternalLibrariesNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="&lt; Python 2.7.11 (/usr/local/Cellar/python/2.7.11/Frameworks/Python.framework/Versions/2.7/bin/python2.7) &gt;" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.NamedLibraryElementNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="TimeEZ" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="TimeEZ" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="TimeEZ" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="TimeEZ" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="TimeEZ" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="TimeEZ" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="TimeEZ" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="TimeEZ" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="timer" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="TimeEZ" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="TimeEZ" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="TimeEZ" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="timer" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="templates" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="timer" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="TimeEZ" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="TimeEZ" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="TimeEZ" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="timer" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="static" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="timer" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="TimeEZ" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="TimeEZ" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="TimeEZ" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="TimeEZ" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-        </subPane>
+        <subPane />
       </pane>
     </panes>
   </component>
@@ -303,8 +184,8 @@
       <recent name="$PROJECT_DIR$/TimeEZ/static/timer" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/TimeEZ/timer/static/timer/bootstrap" />
       <recent name="$PROJECT_DIR$/TimeEZ/timer/static/timer" />
+      <recent name="$PROJECT_DIR$/TimeEZ/timer/static/timer/bootstrap" />
       <recent name="$PROJECT_DIR$/TimeEZ/timer" />
       <recent name="$PROJECT_DIR$/TimeEZ/timer/templates/timer" />
     </key>
@@ -530,10 +411,10 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="204" y="23" width="1093" height="731" extended-state="0" />
+    <frame x="100" y="87" width="1093" height="731" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.21225983" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.21225983" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -672,6 +553,14 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/TimeEZ/timer/static/timer/TimeEZ.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1230">
+          <caret line="107" column="33" selection-start-line="107" selection-start-column="33" selection-end-line="107" selection-end-column="33" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/TimeEZ/TimeEZ/settings.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="246">
@@ -682,33 +571,31 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/TimeEZ/timer/templates/timer/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="345">
-          <caret line="23" column="22" selection-start-line="23" selection-start-column="22" selection-end-line="23" selection-end-column="22" />
+        <state relative-caret-position="376">
+          <caret line="94" column="39" selection-start-line="94" selection-start-column="39" selection-end-line="94" selection-end-column="39" />
           <folding>
             <element signature="n#style#0;n#div#2;n#body#0;n#html#0;n#!!top" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/TimeEZ/timer/static/timer/TimeEZ.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="74">
-          <caret line="39" column="18" selection-start-line="39" selection-start-column="18" selection-end-line="39" selection-end-column="18" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/TimeEZ/timer/static/timer/TimeEZ.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="315">
-          <caret line="135" column="68" selection-start-line="135" selection-start-column="68" selection-end-line="135" selection-end-column="68" />
+        <state relative-caret-position="345">
+          <caret line="357" column="80" selection-start-line="357" selection-start-column="80" selection-end-line="357" selection-end-column="80" />
           <folding>
             <element signature="e#0#46#0" expanded="false" />
-            <element signature="e#1597#2721#0" expanded="false" />
+            <element signature="e#577#1183#0" expanded="false" />
+            <element signature="e#631#888#0" expanded="false" />
+            <element signature="e#2164#3288#0" expanded="false" />
+            <element signature="e#5339#6215#0" expanded="false" />
+            <element signature="e#6337#7121#0" expanded="false" />
+            <element signature="n#!!block;n#displayNewTime#0" expanded="false" />
+            <element signature="n#!!block;n#createTimeSessionLogHTML#0" expanded="false" />
             <element signature="n#!!block;n#ticker#0" expanded="false" />
             <element signature="n#!!block;n#padDigits#0" expanded="false" />
             <element signature="n#!!block;n#hideStartText#0" expanded="false" />
-            <marker date="1462454482000" expanded="true" signature="8480:8600" placeholder="..." />
+            <marker date="1462470072000" expanded="true" signature="9752:9872" placeholder="..." />
           </folding>
         </state>
       </provider>
