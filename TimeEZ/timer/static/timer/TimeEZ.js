@@ -22,7 +22,6 @@ var timeStorageState = [];
 // Saves current time session state.
 window.onbeforeunload = function(){
    if(!currentTimeSessionObj.isEmpty()) {
-        //timeStorageState.push(currentTimeSessionObj);
         storageFunction();
    }
 }
@@ -184,7 +183,10 @@ $(document).ready(function() {
             sessionName = "Unamed Session";
         }
 
-        ts = createTimeSessionLogHTML(currentTimeSessionID,sessionName);
+        currentTimeSessionObj = new TimeStructure(sessionName);
+        timeStorageState.push(currentTimeSessionObj);
+
+        ts = createTimeSessionLogHTML(timeStorageState.length-1,sessionName);
 
 
         $("#newSession").popover('hide');
@@ -200,10 +202,6 @@ $(document).ready(function() {
         $("#newSession").popover('disable');
 
         timeSessionActive = true;
-
-        currentTimeSessionObj = new TimeStructure(sessionName);
-
-        timeStorageState.push(currentTimeSessionObj);
 
         currentTimeSessionID++;
 
@@ -223,7 +221,6 @@ $(document).ready(function() {
                 // We are ending the time session, but have no times in it. Delete the session.
                 $("#ts" + currentTimeSessionID).fadeOut(500);
             }else{
-                timeStorageState.push(currentTimeSessionObj);
                 storageFunction();
             }
 
@@ -319,12 +316,12 @@ function populateTimeLog(state,timeLogID){
                 timeState = constructFromSeralized(constructFromSeralized(timeState));
                 entryies = timeState.getEntries();
 
-                ts = createTimeSessionLogHTML(currentTimeSessionID, timeState.sessionName);
+                ts = createTimeSessionLogHTML(stateCounter, timeState.sessionName);
 
                 $(ts).prependTo("#timeLog");
 
                 entryies.forEach(function (entry) {
-                    displayNewTime(entry, $("#ts" + currentTimeSessionID).find(".timeSessionLog"), stateCounter,false, false);
+                    displayNewTime(entry, $("#ts" + stateCounter).find(".timeSessionLog"), stateCounter,false, false);
                 });
 
                 currentTimeSessionID++;

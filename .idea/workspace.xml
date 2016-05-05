@@ -3,10 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="07654d09-8a83-4e04-8c26-f388fac048bd" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/TimeEZ/designNotes.txt" afterPath="$PROJECT_DIR$/TimeEZ/designNotes.txt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/TimeEZ/timer/static/timer/TimeEZ.css" afterPath="$PROJECT_DIR$/TimeEZ/timer/static/timer/TimeEZ.css" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/TimeEZ/timer/static/timer/TimeEZ.js" afterPath="$PROJECT_DIR$/TimeEZ/timer/static/timer/TimeEZ.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/TimeEZ/timer/templates/timer/index.html" afterPath="$PROJECT_DIR$/TimeEZ/timer/templates/timer/index.html" />
     </list>
     <ignored path="Schedule.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -31,18 +28,15 @@
       <file leaf-file-name="TimeEZ.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/TimeEZ/timer/static/timer/TimeEZ.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="202">
-              <caret line="134" column="38" selection-start-line="134" selection-start-column="25" selection-end-line="134" selection-end-column="38" />
+            <state relative-caret-position="307">
+              <caret line="222" column="18" selection-start-line="222" selection-start-column="18" selection-end-line="222" selection-end-column="18" />
               <folding>
                 <element signature="e#0#46#0" expanded="false" />
-                <element signature="e#539#672#0" expanded="false" />
-                <element signature="e#1653#2777#0" expanded="false" />
-                <element signature="n#!!block;n#populateTimeLog#0" expanded="false" />
-                <element signature="n#!!block;n#constructFromSeralized#0" expanded="false" />
+                <element signature="e#1597#2721#0" expanded="false" />
                 <element signature="n#!!block;n#ticker#0" expanded="false" />
                 <element signature="n#!!block;n#padDigits#0" expanded="false" />
                 <element signature="n#!!block;n#hideStartText#0" expanded="false" />
-                <marker date="1462446566000" expanded="true" signature="8588:8708" placeholder="..." />
+                <marker date="1462449153000" expanded="true" signature="8474:8594" placeholder="..." />
               </folding>
             </state>
           </provider>
@@ -587,7 +581,7 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="25" />
+      <option name="time" value="27" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -701,18 +695,15 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/TimeEZ/timer/static/timer/TimeEZ.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="202">
-          <caret line="134" column="38" selection-start-line="134" selection-start-column="25" selection-end-line="134" selection-end-column="38" />
+        <state relative-caret-position="307">
+          <caret line="222" column="18" selection-start-line="222" selection-start-column="18" selection-end-line="222" selection-end-column="18" />
           <folding>
             <element signature="e#0#46#0" expanded="false" />
-            <element signature="e#539#672#0" expanded="false" />
-            <element signature="e#1653#2777#0" expanded="false" />
-            <element signature="n#!!block;n#populateTimeLog#0" expanded="false" />
-            <element signature="n#!!block;n#constructFromSeralized#0" expanded="false" />
+            <element signature="e#1597#2721#0" expanded="false" />
             <element signature="n#!!block;n#ticker#0" expanded="false" />
             <element signature="n#!!block;n#padDigits#0" expanded="false" />
             <element signature="n#!!block;n#hideStartText#0" expanded="false" />
-            <marker date="1462446566000" expanded="true" signature="8588:8708" placeholder="..." />
+            <marker date="1462449153000" expanded="true" signature="8474:8594" placeholder="..." />
           </folding>
         </state>
       </provider>
