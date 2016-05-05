@@ -215,11 +215,7 @@ $(document).ready(function() {
         $(ts).prependTo("#timeLog").addClass("active");
 
         // Change button to end time session.
-        $("#newSession").removeClass("btn-primary");
-        $("#newSession").addClass("btn-warning");
-        $("#newSession").html("End Time Session");
-
-        $("#newSession").popover('disable');
+        makeSessionBttnEndSession()
 
         timeSessionActive = true;
 
@@ -248,9 +244,8 @@ $(document).ready(function() {
             $("#newSession").html("New Time Session");
 
             $("#newSession").popover('enable');
-
-            // The last element in the timeStorageState is the current one.
-            $("#ts" + (timeStorageState.length-1)).removeClass("active");
+            
+            $("#ts" + currentTimeSessionID).removeClass("active");
 
             if(currentTimeSessionObj.isEmpty()) {
                 // We are ending the time session, but have no times in it. Delete the session.
@@ -268,6 +263,17 @@ $(document).ready(function() {
     //************ END EVENT HANDLERS ***********************//
 
 });
+
+// Change button to end time session.
+function makeSessionBttnEndSession() {
+
+    $("#newSession").removeClass("btn-primary");
+    $("#newSession").addClass("btn-warning");
+    $("#newSession").html("End Time Session");
+
+    $("#newSession").popover('disable');
+
+}
 
 function openModal(stateID){
     // The stateID is the index at which the object is found in the timeStorageState
@@ -311,6 +317,8 @@ function openModal(stateID){
 
             // Hide active modal.
             $('.modal.in').modal("hide");
+
+            makeSessionBttnEndSession();
 
         });
         
