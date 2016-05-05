@@ -215,7 +215,7 @@ $(document).ready(function() {
         $(ts).prependTo("#timeLog").addClass("active");
 
         // Change button to end time session.
-        makeSessionBttnEndSession()
+        makeSessionBttnEndSession();
 
         timeSessionActive = true;
 
@@ -239,11 +239,8 @@ $(document).ready(function() {
 
         //Time session is active. End it.
         if(timeSessionActive) {
-            $("#newSession").removeClass("btn-warning");
-            $("#newSession").addClass("btn-primary");
-            $("#newSession").html("New Time Session");
 
-            $("#newSession").popover('enable');
+            makeSessionBttnStartSession();
             
             $("#ts" + currentTimeSessionID).removeClass("active");
 
@@ -272,7 +269,14 @@ function makeSessionBttnEndSession() {
     $("#newSession").html("End Time Session");
 
     $("#newSession").popover('disable');
+}
 
+function makeSessionBttnStartSession() {
+    $("#newSession").removeClass("btn-warning");
+    $("#newSession").addClass("btn-primary");
+    $("#newSession").html("New Time Session");
+
+    $("#newSession").popover('enable');
 }
 
 function openModal(stateID){
@@ -295,10 +299,19 @@ function openModal(stateID){
         // A session.
         $("#deleteSession").unbind("click");
         $("#deleteSession").click(function () {
-         
+
             delete timeStorageState[stateID];
             storageFunction();
             $("#ts"+stateID).remove();
+
+            console.log(stateID);
+            console.log(currentTimeSessionID);
+
+            if(stateID == currentTimeSessionID)
+            {
+                // We are deleting the current time session.
+                makeSessionBttnStartSession();
+            }
 
             // Hide active modal.
             $('.modal.in').modal("hide");
@@ -314,6 +327,11 @@ function openModal(stateID){
             currentTimeSessionID = stateID;
 
             $("#ts"+stateID).addClass("active");
+
+
+            $("#ts"+stateID).prependTo("#timeLog");
+
+
 
             // Hide active modal.
             $('.modal.in').modal("hide");
