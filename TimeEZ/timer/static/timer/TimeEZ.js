@@ -133,8 +133,8 @@ $(document).ready(function() {
 
                 var ne = currentTimeSessionObj.addEntry(startTime,endTime,durationString);
 
-                displayNewTime(ne,$("#ts"+(currentTimeSessionID-1))
-                    .find(".timeSessionLog"),currentTimeSessionID-1,false,false);
+                displayNewTime(ne,$("#ts"+(timeStorageState.length-1))
+                    .find(".timeSessionLog"),timeStorageState.length-1,false,false);
 
             }else{
                 ts = new TimeStructure(null);

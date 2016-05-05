@@ -3,6 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="07654d09-8a83-4e04-8c26-f388fac048bd" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/TimeEZ/timer/static/timer/TimeEZ.css" afterPath="$PROJECT_DIR$/TimeEZ/timer/static/timer/TimeEZ.css" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/TimeEZ/timer/static/timer/TimeEZ.js" afterPath="$PROJECT_DIR$/TimeEZ/timer/static/timer/TimeEZ.js" />
     </list>
     <ignored path="Schedule.iws" />
@@ -28,15 +29,15 @@
       <file leaf-file-name="TimeEZ.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/TimeEZ/timer/static/timer/TimeEZ.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="307">
-              <caret line="222" column="18" selection-start-line="222" selection-start-column="18" selection-end-line="222" selection-end-column="18" />
+            <state relative-caret-position="315">
+              <caret line="135" column="68" selection-start-line="135" selection-start-column="68" selection-end-line="135" selection-end-column="68" />
               <folding>
                 <element signature="e#0#46#0" expanded="false" />
                 <element signature="e#1597#2721#0" expanded="false" />
                 <element signature="n#!!block;n#ticker#0" expanded="false" />
                 <element signature="n#!!block;n#padDigits#0" expanded="false" />
                 <element signature="n#!!block;n#hideStartText#0" expanded="false" />
-                <marker date="1462449153000" expanded="true" signature="8474:8594" placeholder="..." />
+                <marker date="1462454482000" expanded="true" signature="8480:8600" placeholder="..." />
               </folding>
             </state>
           </provider>
@@ -45,8 +46,8 @@
       <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/TimeEZ/timer/templates/timer/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1530">
-              <caret line="102" column="10" selection-start-line="102" selection-start-column="10" selection-end-line="102" selection-end-column="10" />
+            <state relative-caret-position="345">
+              <caret line="23" column="22" selection-start-line="23" selection-start-column="22" selection-end-line="23" selection-end-column="22" />
               <folding>
                 <element signature="n#style#0;n#div#2;n#body#0;n#html#0;n#!!top" expanded="true" />
               </folding>
@@ -67,8 +68,8 @@
       <file leaf-file-name="TimeEZ.css" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/TimeEZ/timer/static/timer/TimeEZ.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="225">
-              <caret line="101" column="0" selection-start-line="101" selection-start-column="0" selection-end-line="101" selection-end-column="0" />
+            <state relative-caret-position="74">
+              <caret line="39" column="18" selection-start-line="39" selection-start-column="18" selection-end-line="39" selection-end-column="18" />
               <folding />
             </state>
           </provider>
@@ -110,9 +111,9 @@
         <option value="$PROJECT_DIR$/TimeEZ/TimeEZ/settings.py" />
         <option value="$PROJECT_DIR$/TimeEZ/timer/static/timer/TimeEZOffline.appcache" />
         <option value="$PROJECT_DIR$/TimeEZ/TimeEZ/urls.py" />
-        <option value="$PROJECT_DIR$/TimeEZ/timer/static/timer/TimeEZ.css" />
-        <option value="$PROJECT_DIR$/TimeEZ/timer/templates/timer/index.html" />
         <option value="$PROJECT_DIR$/TimeEZ/designNotes.txt" />
+        <option value="$PROJECT_DIR$/TimeEZ/timer/templates/timer/index.html" />
+        <option value="$PROJECT_DIR$/TimeEZ/timer/static/timer/TimeEZ.css" />
         <option value="$PROJECT_DIR$/TimeEZ/timer/static/timer/TimeEZ.js" />
       </list>
     </option>
@@ -258,6 +259,10 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="static" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="timer" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -643,14 +648,6 @@
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/TimeEZ/timer/static/timer/TimeEZ.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="101" column="0" selection-start-line="101" selection-start-column="0" selection-end-line="101" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/TimeEZ/TimeEZ/urls.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="315">
@@ -667,14 +664,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/TimeEZ/TimeEZ/settings.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="246">
-          <caret line="30" column="24" selection-start-line="30" selection-start-column="24" selection-end-line="30" selection-end-column="24" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/TimeEZ/designNotes.txt">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="240">
@@ -683,27 +672,43 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/TimeEZ/TimeEZ/settings.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="246">
+          <caret line="30" column="24" selection-start-line="30" selection-start-column="24" selection-end-line="30" selection-end-column="24" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/TimeEZ/timer/templates/timer/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1530">
-          <caret line="102" column="10" selection-start-line="102" selection-start-column="10" selection-end-line="102" selection-end-column="10" />
+        <state relative-caret-position="345">
+          <caret line="23" column="22" selection-start-line="23" selection-start-column="22" selection-end-line="23" selection-end-column="22" />
           <folding>
             <element signature="n#style#0;n#div#2;n#body#0;n#html#0;n#!!top" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/TimeEZ/timer/static/timer/TimeEZ.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="74">
+          <caret line="39" column="18" selection-start-line="39" selection-start-column="18" selection-end-line="39" selection-end-column="18" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/TimeEZ/timer/static/timer/TimeEZ.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="307">
-          <caret line="222" column="18" selection-start-line="222" selection-start-column="18" selection-end-line="222" selection-end-column="18" />
+        <state relative-caret-position="315">
+          <caret line="135" column="68" selection-start-line="135" selection-start-column="68" selection-end-line="135" selection-end-column="68" />
           <folding>
             <element signature="e#0#46#0" expanded="false" />
             <element signature="e#1597#2721#0" expanded="false" />
             <element signature="n#!!block;n#ticker#0" expanded="false" />
             <element signature="n#!!block;n#padDigits#0" expanded="false" />
             <element signature="n#!!block;n#hideStartText#0" expanded="false" />
-            <marker date="1462449153000" expanded="true" signature="8474:8594" placeholder="..." />
+            <marker date="1462454482000" expanded="true" signature="8480:8600" placeholder="..." />
           </folding>
         </state>
       </provider>
