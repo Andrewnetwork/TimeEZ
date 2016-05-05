@@ -153,8 +153,8 @@ $(document).ready(function() {
 
                 var ne = currentTimeSessionObj.addEntry(startTime,endTime,durationString);
 
-                displayNewTime(ne,$("#ts"+(timeStorageState.length-1))
-                    .find(".timeSessionLog"),timeStorageState.length-1,false,false);
+                displayNewTime(ne,$("#ts"+currentTimeSessionID )
+                    .find(".timeSessionLog"),currentTimeSessionID ,false,false);
 
             }else{
                 ts = new TimeStructure(null);
@@ -193,9 +193,7 @@ $(document).ready(function() {
     });
 
     // Button in popover window for creating a nammed session.
-    $(document).on('click', "#createSessionName", function() {
-
-
+    sesFun = function() {
 
         sessionName = $("#sessionNameIn").val();
 
@@ -225,9 +223,20 @@ $(document).ready(function() {
 
         timeSessionActive = true;
 
-        currentTimeSessionID++;
+        currentTimeSessionID  = timeStorageState.length - 1;
 
-    });
+    };
+
+    $(document).on('click', "#createSessionName", sesFun);
+    $(window).on('keypress', function(e){
+        //TODO: There may be a bug here .
+        if($("#sessionNameIn").val()!=null && e.keyCode == 13)
+        {
+            sesFun();
+        }
+
+
+    } );
 
     // Click the bottom End Session or New Time Session button.
     $(document).on('click', "#newSession", function() {
@@ -296,6 +305,8 @@ function openModal(stateID){
 
             currentTimeSessionObj = timeStorageState[stateID];
             timeSessionActive = true;
+            currentTimeSessionID = stateID;
+
             $("#ts"+stateID).addClass("active");
 
             // Hide active modal.
@@ -367,7 +378,7 @@ function populateTimeLog(state,timeLogID){
                     displayNewTime(entry, $("#ts" + stateCounter).find(".timeSessionLog"), stateCounter,false, false);
                 });
 
-                currentTimeSessionID++;
+                currentTimeSessionID  = timeStorageState.length - 1;
             }
 
             stateCounter++
