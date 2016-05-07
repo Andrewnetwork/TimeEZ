@@ -33,7 +33,6 @@ window.onbeforeunload = function(){
 
        ts = new TimeStructure(null);
        ts.addEntry(startTime,endTime,durationString);
-       alert(ts);
        timeStorageState.push(ts);
    }
 
@@ -67,7 +66,7 @@ function TimeStructure (timeSessionName) {
     this.isEmpty = function () {
         return this.timeEntries.length == 0;
     }
-
+    
 
 
     this.makeStringifyObj = function(){
@@ -98,10 +97,16 @@ function TimeEntry(startDate,endDate,duration) {
         this.viewReferences[view] = reference;
     }
 
+    this.setLabel = function (lbl) {
+        this.timeLabel = lbl;
+    }
+    this.getLabel = function () {
+        return this.timeLabel
+    }
+
     // Rendering functions
     this.timeLogRender = function () {
-        this.viewReferences["TimeLog"].hide();
-        //this.timeLogViewReference;
+        this.viewReferences["TimeLog"].find(".timeEntryLabel").html(this.timeLabel);
     };
 
 }
@@ -179,7 +184,7 @@ $(document).ready(function() {
                 var ne = currentTimeSessionObj.addEntry(startTime,endTime,durationString);
 
                 timeRef = displayNewTime(ne,$("#ts"+currentTimeSessionID )
-                    .find(".timeSessionLog"),currentTimeSessionID ,false,false);
+                    .find(".timeSessionLog"),currentTimeSessionID ,false,false,ne.getEntries().length-1);
 
                 ne.addViewRef("TimeLog",timeRef);
 
@@ -188,7 +193,7 @@ $(document).ready(function() {
                 ts.addEntry(startTime,endTime,durationString);
                 timeStorageState.push(ts);
 
-                displayNewTime(ts.getEntries()[0], "#timeLog", timeStorageState.length-1,true, true);
+                displayNewTime(ts.getEntries()[0], "#timeLog", timeStorageState.length-1,true, true,0);
 
                 storageFunction();
             }
@@ -367,13 +372,11 @@ $(document).ready(function() {
 
                 //console.log(entry);
                 id = '#fc'+stateID+formCounter;
-                $(document).on('keyup',id, function () {
+                $(document).on('keyup','#fc'+stateID+formCounter, function (e) {
 
-                    formInput = $(id).val();
-                    alert(formInput.length > 0);
+                    formInput = $(e.currentTarget).val();
+
                     if(formInput != null && formInput.length > 0 ){
-                        //TODO: Render not a function bug.
-                        alert("JD");
                         entry.timeLabel = formInput;
                         entry.render("TimeLog");
 
@@ -416,29 +419,32 @@ function makeSessionBttnStartSession() {
 }
 
 
-function displayNewTime(timeEntry, parentID, stateID,includeDateStr, isSingluar){
+function displayNewTime(timeEntry, parentID, stateID,includeDateStr, isSingluar,idPostFix){
 
     var startTime      = timeEntry.startTime;
     var endTime        = timeEntry.endDate;
     var durationString = timeEntry.duration;
     var timeLabel      = '<button type="button" class="btn btn-success btn-xs">Create Label</button>';
 
-    if(includeDateStr) {
+    if(timeEntry.timeLabel.length > 0)
+    {
+        timeLabel = timeEntry.timeLabel;
+    }
+    else if(includeDateStr) {
         timeLabel  = padDigits(startTime.getMonth(), 2) + "/" + padDigits(startTime.getDay(), 2) + "/" + padDigits(startTime.getFullYear(), 2) + " | "
             + padDigits(startTime.getHours(), 2) + ":" + padDigits(startTime.getMinutes(), 2) + ":" + padDigits(startTime.getSeconds(), 2) + " - "
             + padDigits(endTime.getHours(), 2) + ":" + padDigits(endTime.getMinutes(), 2) + ":" + padDigits(endTime.getSeconds(), 2);
     }
     // Only include a modal on an indivudal time entry, otherwise the session modal will
     // be triggered upon clicking individual times in a session.
-    var modalStr ='<div class="timeEntry" id="te'+stateID+'">';
+    var modalStr ='<div class="timeEntry" id="te'+stateID+''+idPostFix+'">';
     if(isSingluar){
-        modalStr = '<div data-toggle="modal" draggable="true" id="te'+stateID+'" onclick="openModal('+stateID+')" data-target="#singeTimeModal" class="timeEntry">';
+        modalStr = '<div data-toggle="modal" draggable="true" id="te'+stateID+''+idPostFix+'" onclick="openModal('+stateID+')" data-target="#singeTimeModal" class="timeEntry">';
     }
 
-    var entry = modalStr+ '<div class="timeEntryTime">'+timeLabel+'</div>\
+    var entry = modalStr+ '<div class="timeEntryLabel">'+timeLabel+'</div>\
     <div class="timeEntryDuration">'+durationString+'</div>\
     </div>';
-
 
     return $(entry).prependTo(parentID);
 }
@@ -456,7 +462,7 @@ function populateTimeLog(state,timeLogID){
                 // We are not dealing with a time sesssion.
 
                 entry = timeState.getEntries()[0];
-                displayNewTime(entry, timeLogID, stateCounter,true, true);
+                displayNewTime(entry, timeLogID, stateCounter,true, true,0);
             }
             else {
                 // Dealing with a time session.
@@ -470,12 +476,13 @@ function populateTimeLog(state,timeLogID){
 
                 $(ts).prependTo("#timeLog");
 
+                entryCounter = 0;
                 entryies.forEach(function (entry) {
-                    timeRef = displayNewTime(entry, $("#ts" + stateCounter).find(".timeSessionLog"), stateCounter,false, false);
+                    timeRef = displayNewTime(entry, $("#ts" + stateCounter).find(".timeSessionLog"), stateCounter,false, false,entryCounter);
 
                     entry.addViewRef("TimeLog",timeRef);
+                    entryCounter++;
 
-                    //console.log(entry.viewReferences["TimeLog"]);
                 });
 
                 console.log(timeState.getEntries());
@@ -504,6 +511,7 @@ function constructFromSeralized(obj)
         this.viewReferences = [];
 
         te = new TimeEntry(startTime,endDate,duration);
+        te.setLabel(timeEntry.timeLabel);
 
         ts.timeEntries.push(te);
     });

@@ -54,7 +54,7 @@ div.timeEntry:hover
     background-color: #f5f3f5;
 }
 
-.timeEntryTime
+.timeEntryLabel
 {
     float: left; font-size: 15px; line-height:30px;
 }
