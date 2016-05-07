@@ -57,8 +57,6 @@
       <file leaf-file-name="TimeEZ.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/TimeEZ/timer/static/timer/TimeEZ.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="240">
-              <caret line="374" column="64" selection-start-line="374" selection-start-column="64" selection-end-line="374" selection-end-column="64" />
               <folding>
                 <element signature="e#0#46#0" expanded="false" />
                 <element signature="e#759#998#0" expanded="false" />
@@ -66,7 +64,6 @@
                 <element signature="n#!!block;n#createTimeSessionLogHTML#0" expanded="false" />
                 <element signature="n#!!block;n#ticker#0" expanded="false" />
                 <element signature="n#!!block;n#hideStartText#0" expanded="false" />
-                <marker date="1462603688000" expanded="true" signature="12834:12955" placeholder="..." />
               </folding>
             </state>
           </provider>
@@ -634,7 +631,6 @@
             <element signature="n#!!block;n#createTimeSessionLogHTML#0" expanded="false" />
             <element signature="n#!!block;n#ticker#0" expanded="false" />
             <element signature="n#!!block;n#hideStartText#0" expanded="false" />
-            <marker date="1462603688000" expanded="true" signature="12834:12955" placeholder="..." />
           </folding>
         </state>
       </provider>
@@ -736,8 +732,6 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/TimeEZ/timer/static/timer/TimeEZ.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="374" column="64" selection-start-line="374" selection-start-column="64" selection-end-line="374" selection-end-column="64" />
           <folding>
             <element signature="e#0#46#0" expanded="false" />
             <element signature="e#759#998#0" expanded="false" />
@@ -745,7 +739,6 @@
             <element signature="n#!!block;n#createTimeSessionLogHTML#0" expanded="false" />
             <element signature="n#!!block;n#ticker#0" expanded="false" />
             <element signature="n#!!block;n#hideStartText#0" expanded="false" />
-            <marker date="1462603688000" expanded="true" signature="12834:12955" placeholder="..." />
           </folding>
         </state>
       </provider>

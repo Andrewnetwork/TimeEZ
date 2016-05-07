@@ -168,6 +168,7 @@ $(document).ready(function() {
     $("#actionButton").click(function () {
         if(timerCounting)
         {
+            // End Time.
             endTime = new Date();
 
             clearInterval(countingInterval);
@@ -184,7 +185,7 @@ $(document).ready(function() {
                 var ne = currentTimeSessionObj.addEntry(startTime,endTime,durationString);
 
                 timeRef = displayNewTime(ne,$("#ts"+currentTimeSessionID )
-                    .find(".timeSessionLog"),currentTimeSessionID ,false,false,ne.getEntries().length-1);
+                    .find(".timeSessionLog"),currentTimeSessionID ,false,false,currentTimeSessionObj.getEntries().length-1);
 
                 ne.addViewRef("TimeLog",timeRef);
 
@@ -207,6 +208,7 @@ $(document).ready(function() {
         }
         else
         {
+            //Start time.
 
             $("#actionButton").removeClass("btn-success");
             $("#actionButton").addClass("btn-danger");
@@ -439,7 +441,7 @@ function displayNewTime(timeEntry, parentID, stateID,includeDateStr, isSingluar,
     // be triggered upon clicking individual times in a session.
     var modalStr ='<div class="timeEntry" id="te'+stateID+''+idPostFix+'">';
     if(isSingluar){
-        modalStr = '<div data-toggle="modal" draggable="true" id="te'+stateID+''+idPostFix+'" onclick="openModal('+stateID+')" data-target="#singeTimeModal" class="timeEntry">';
+        modalStr = '<div data-toggle="modal" draggable="true" id="te'+stateID+'" onclick="openModal('+stateID+')" data-target="#singeTimeModal" class="timeEntry">';
     }
 
     var entry = modalStr+ '<div class="timeEntryLabel">'+timeLabel+'</div>\
