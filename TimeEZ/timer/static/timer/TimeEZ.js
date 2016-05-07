@@ -14,6 +14,9 @@ var duration = 0;
 var preState = true;
 var storageFunction = null;
 
+// For the global function to be defined when the document is loaded so that it may assign events to it.
+var openModal = null;
+
 // Elements are time structures.
 // Null elements are left in place to keep the ordering of the elements.
 // Nulls are removed when saving the data.
@@ -78,7 +81,29 @@ function TimeEntry(startDate,endDate,duration) {
 
     this.startTime = startDate;
     this.endDate = endDate;
-    this.duration = duration
+    this.duration = duration;
+    this.timeLabel = "";
+    this.viewReferences = [];
+
+    // Render this function for it's view
+    this.render = function(view){
+        switch(view){
+            case "TimeLog":
+                this.timeLogRender();
+        }
+    };
+
+    this.addViewRef = function (view,reference) {
+
+        this.viewReferences[view] = reference;
+    }
+
+    // Rendering functions
+    this.timeLogRender = function () {
+        this.viewReferences["TimeLog"].hide();
+        //this.timeLogViewReference;
+    };
+
 }
 
 $(document).ready(function() {
@@ -125,7 +150,7 @@ $(document).ready(function() {
         // We don't have any local storage.
         storageFunction = function(){
             alert("Could not store local data.");
-        }
+        };
         
         alert("You poor sap. We don't support your old browser. Consider joining us in the future.");
     }
@@ -153,10 +178,12 @@ $(document).ready(function() {
 
                 var ne = currentTimeSessionObj.addEntry(startTime,endTime,durationString);
 
-                displayNewTime(ne,$("#ts"+currentTimeSessionID )
+                timeRef = displayNewTime(ne,$("#ts"+currentTimeSessionID )
                     .find(".timeSessionLog"),currentTimeSessionID ,false,false);
 
-            }else{
+                ne.addViewRef("TimeLog",timeRef);
+
+             }else{
                 ts = new TimeStructure(null);
                 ts.addEntry(startTime,endTime,durationString);
                 timeStorageState.push(ts);
@@ -257,6 +284,115 @@ $(document).ready(function() {
         }
     });
 
+    openModal = function (stateID){
+        // The stateID is the index at which the object is found in the timeStorageState
+        obj = timeStorageState[stateID];
+
+        if(obj.sessionName == null){
+            // Single Time, not a session.
+            $("#deleteTime").unbind("click");
+            $("#deleteTime").click(function () {
+
+                delete timeStorageState[stateID];
+                storageFunction();
+                $("#te"+stateID).remove();
+                // Hide active modal.
+                $('.modal.in').modal("hide");
+            });
+
+        }else{
+            // A session.
+            $("#deleteSession").unbind("click");
+            $("#deleteSession").click(function () {
+
+                delete timeStorageState[stateID];
+                storageFunction();
+                $("#ts"+stateID).remove();
+
+                //console.log(stateID);
+                //console.log(currentTimeSessionID);
+
+                if(stateID == currentTimeSessionID)
+                {
+                    // We are deleting the current time session.
+                    makeSessionBttnStartSession();
+                }
+
+                // Hide active modal.
+                $('.modal.in').modal("hide");
+
+
+            });
+
+            $("#makeActiveSession").unbind("click");
+            $("#makeActiveSession").click(function () {
+
+                currentTimeSessionObj = timeStorageState[stateID];
+                timeSessionActive = true;
+                currentTimeSessionID = stateID;
+
+                $("#ts"+stateID).addClass("active");
+
+
+                $("#ts"+stateID).prependTo("#timeLog");
+
+
+
+                // Hide active modal.
+                $('.modal.in').modal("hide");
+
+                makeSessionBttnEndSession();
+
+            });
+
+            //Populate Modal for New Session
+
+            $("#sessionTitle").html(timeStorageState[stateID].sessionName);
+            $("#sessionModalBody").html("");
+
+            var entries = timeStorageState[stateID].getEntries();
+
+
+            var formCounter = 0;
+            entries.forEach( function ( entry ) {
+
+                var entryHTML =
+                    '<div class="form-group" >' +
+                        '<span class="label label-info col-sm-3 timeLabelModal">Time Label</span>' +
+                        '<div class="timeLabelModalEntry"><input id="fc'+stateID+formCounter+'" type="text" class="form-control"></div>'+
+                        '<div class="timeShowModal">'+entry.duration+'</div>'+
+                    '</div>';
+
+                $("#sessionModalBody").prepend(entryHTML+"<br/>");
+
+                //console.log(entry);
+                id = '#fc'+stateID+formCounter;
+                $(document).on('keyup',id, function () {
+
+                    formInput = $(id).val();
+                    alert(formInput.length > 0);
+                    if(formInput != null && formInput.length > 0 ){
+                        //TODO: Render not a function bug.
+                        alert("JD");
+                        entry.timeLabel = formInput;
+                        entry.render("TimeLog");
+
+                    }
+
+
+                });
+
+                formCounter++;
+            });
+
+
+
+
+        }
+
+    }
+
+
     //************ END EVENT HANDLERS ***********************//
 
 });
@@ -279,78 +415,13 @@ function makeSessionBttnStartSession() {
     $("#newSession").popover('enable');
 }
 
-function openModal(stateID){
-    // The stateID is the index at which the object is found in the timeStorageState
-    obj = timeStorageState[stateID];
-    
-    if(obj.sessionName == null){
-        // Single Time, not a session.
-        $("#deleteTime").unbind("click");
-        $("#deleteTime").click(function () {
-         
-            delete timeStorageState[stateID];
-            storageFunction();
-            $("#te"+stateID).remove();
-            // Hide active modal.
-            $('.modal.in').modal("hide");
-        });
-
-    }else{
-        // A session.
-        $("#deleteSession").unbind("click");
-        $("#deleteSession").click(function () {
-
-            delete timeStorageState[stateID];
-            storageFunction();
-            $("#ts"+stateID).remove();
-
-            console.log(stateID);
-            console.log(currentTimeSessionID);
-
-            if(stateID == currentTimeSessionID)
-            {
-                // We are deleting the current time session.
-                makeSessionBttnStartSession();
-            }
-
-            // Hide active modal.
-            $('.modal.in').modal("hide");
-            
-            
-        });
-
-        $("#makeActiveSession").unbind("click");
-        $("#makeActiveSession").click(function () {
-
-            currentTimeSessionObj = timeStorageState[stateID];
-            timeSessionActive = true;
-            currentTimeSessionID = stateID;
-
-            $("#ts"+stateID).addClass("active");
-
-
-            $("#ts"+stateID).prependTo("#timeLog");
-
-
-
-            // Hide active modal.
-            $('.modal.in').modal("hide");
-
-            makeSessionBttnEndSession();
-
-        });
-        
-        $("#sessionTitle").html(timeStorageState[stateID].sessionName);
-    }
-    
-}
 
 function displayNewTime(timeEntry, parentID, stateID,includeDateStr, isSingluar){
 
     var startTime      = timeEntry.startTime;
     var endTime        = timeEntry.endDate;
     var durationString = timeEntry.duration;
-    var timeLabel        = '<button type="button" class="btn btn-success btn-xs">Create Label</button>';
+    var timeLabel      = '<button type="button" class="btn btn-success btn-xs">Create Label</button>';
 
     if(includeDateStr) {
         timeLabel  = padDigits(startTime.getMonth(), 2) + "/" + padDigits(startTime.getDay(), 2) + "/" + padDigits(startTime.getFullYear(), 2) + " | "
@@ -368,9 +439,8 @@ function displayNewTime(timeEntry, parentID, stateID,includeDateStr, isSingluar)
     <div class="timeEntryDuration">'+durationString+'</div>\
     </div>';
 
-    $(entry).prependTo(parentID);
 
-
+    return $(entry).prependTo(parentID);
 }
 
 function populateTimeLog(state,timeLogID){
@@ -401,10 +471,16 @@ function populateTimeLog(state,timeLogID){
                 $(ts).prependTo("#timeLog");
 
                 entryies.forEach(function (entry) {
-                    displayNewTime(entry, $("#ts" + stateCounter).find(".timeSessionLog"), stateCounter,false, false);
+                    timeRef = displayNewTime(entry, $("#ts" + stateCounter).find(".timeSessionLog"), stateCounter,false, false);
+
+                    entry.addViewRef("TimeLog",timeRef);
+
+                    //console.log(entry.viewReferences["TimeLog"]);
                 });
 
-                currentTimeSessionID  = timeStorageState.length - 1;
+                console.log(timeState.getEntries());
+
+                currentTimeSessionID = timeStorageState.length - 1;
             }
 
             stateCounter++
@@ -418,12 +494,18 @@ function constructFromSeralized(obj)
     ts = new TimeStructure(obj.sessionName);
 
     // Turn the date objects back to Date().
-    ts.timeEntries = obj.timeEntries;
 
     obj.timeEntries.forEach(function (timeEntry) {
 
-        timeEntry.startTime = new Date(timeEntry.startTime);
-        timeEntry.endDate = new Date(timeEntry.endDate);
+
+        var startTime = new Date(timeEntry.startTime);
+        var endDate = new Date(timeEntry.endDate);
+        var duration = timeEntry.duration;
+        this.viewReferences = [];
+
+        te = new TimeEntry(startTime,endDate,duration);
+
+        ts.timeEntries.push(te);
     });
 
     return ts;

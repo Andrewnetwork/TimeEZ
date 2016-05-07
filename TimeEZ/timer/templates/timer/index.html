@@ -48,12 +48,6 @@
                 New Time Session
             </button>
         </div>
-
-        <div id="kexp">
-            <a href="http://www.kexp.io" target="_blank">
-                <img src="{% static 'timer/kexp.png' %}" />
-            </a>
-        </div>
     </div>
 
     <!--- Show only if the user is not logged in !---->
@@ -91,8 +85,8 @@
           <button type="button" class="close" data-dismiss="modal">&times;</button>
           <h4 id="sessionTitle" class="modal-title">Session Model</h4>
         </div>
-        <div class="modal-body">
-          <p>This is a large modal.</p>
+        <div id="sessionModalBody" class="modal-body">
+
         </div>
         <div class="modal-footer">
             <button type="button" id="makeActiveSession" class="btn btn-success">Make Active Session</button>

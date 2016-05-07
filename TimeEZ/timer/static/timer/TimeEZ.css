@@ -64,11 +64,6 @@ div.timeEntry:hover
     float:right; color:#68a751;
 }
 
-#kexp
-{
-    margin-top: 10px;
-}
-
 #newSessionBar
 {
     margin-left: auto; margin-right: auto;
@@ -135,4 +130,29 @@ div.timeSession:hover
     font-size:24px;
     color: #b7b5b7;
     margin-top: 130px;
+}
+
+.timeLabelModal
+{
+    font-size:23px;
+    float: left;
+    margin-right: 5px;
+    width:155px;
+}
+
+.timeShowModal
+{
+    font-size:22px;
+}
+
+#sessionModalBody
+{
+    margin-bottom: -32px;
+}
+
+.timeLabelModalEntry
+{
+    width:30%;
+    float: left;
+    padding-right: 8px;
 }
