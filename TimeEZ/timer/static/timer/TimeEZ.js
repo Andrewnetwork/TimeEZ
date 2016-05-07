@@ -106,8 +106,22 @@ function TimeEntry(startDate,endDate,duration) {
 
     // Rendering functions
     this.timeLogRender = function () {
-        this.viewReferences["TimeLog"].find(".timeEntryLabel").html(this.timeLabel);
+        var timeLabel  = this.timeLabel;
+
+        if(this.timeLabel.length == 0)
+        {
+            timeLabel  = '<button type="button" class="btn btn-success btn-xs">Create Label</button>'
+        }
+
+        this.viewReferences["TimeLog"].find(".timeEntryLabel").html(timeLabel);
     };
+
+    this.removeView = function (view) {
+        if(view == "TimeLog")
+        {
+            this.viewReferences[view].fadeOut(300);
+        }
+    }
 
 }
 
@@ -354,7 +368,7 @@ $(document).ready(function() {
 
             //Populate Modal for New Session
 
-            $("#sessionTitle").html(timeStorageState[stateID].sessionName);
+            $("#sessionTitle").val(timeStorageState[stateID].sessionName);
             $("#sessionModalBody").html("");
 
             var entries = timeStorageState[stateID].getEntries();
@@ -363,27 +377,37 @@ $(document).ready(function() {
             var formCounter = 0;
             entries.forEach( function ( entry ) {
 
+                var entryLabel = entry.getLabel();
+                var id = ''+stateID+formCounter;
                 var entryHTML =
-                    '<div class="form-group" >' +
+                    '<div class="form-group" id="fg'+id+'" >' +
                         '<span class="label label-info col-sm-3 timeLabelModal">Time Label</span>' +
-                        '<div class="timeLabelModalEntry"><input id="fc'+stateID+formCounter+'" type="text" class="form-control"></div>'+
+                        '<div class="timeLabelModalEntry">' +
+                            '<input id="fc'+id+'" type="text" class="form-control" value="'+entryLabel+'">' +
+                        '</div>'+
                         '<div class="timeShowModal">'+entry.duration+'</div>'+
+                        '<div class="deleteTimeModal"><button type="button" class="btn btn-danger" >Delete Time</button></div>'+
                     '</div>';
 
-                $("#sessionModalBody").prepend(entryHTML+"<br/>");
+                $("#sessionModalBody").prepend(entryHTML);
+
+                var tc = formCounter
+                $("#fg"+id).find(".btn").click(function () {
+                    $("#fg"+id).fadeOut(300);
+                    console.log(formCounter);
+                    timeStorageState[stateID].timeEntries[tc].removeView("TimeLog");
+                    delete timeStorageState[stateID].timeEntries[tc];
+                });
 
                 //console.log(entry);
-                id = '#fc'+stateID+formCounter;
                 $(document).on('keyup','#fc'+stateID+formCounter, function (e) {
 
                     formInput = $(e.currentTarget).val();
 
-                    if(formInput != null && formInput.length > 0 ){
+                    if(formInput != null  ){
                         entry.timeLabel = formInput;
                         entry.render("TimeLog");
-
                     }
-
 
                 });
 
@@ -506,16 +530,17 @@ function constructFromSeralized(obj)
 
     obj.timeEntries.forEach(function (timeEntry) {
 
+        if(timeEntry != null) {
+            var startTime = new Date(timeEntry.startTime);
+            var endDate = new Date(timeEntry.endDate);
+            var duration = timeEntry.duration;
+            this.viewReferences = [];
 
-        var startTime = new Date(timeEntry.startTime);
-        var endDate = new Date(timeEntry.endDate);
-        var duration = timeEntry.duration;
-        this.viewReferences = [];
+            te = new TimeEntry(startTime, endDate, duration);
+            te.setLabel(timeEntry.timeLabel);
 
-        te = new TimeEntry(startTime,endDate,duration);
-        te.setLabel(timeEntry.timeLabel);
-
-        ts.timeEntries.push(te);
+            ts.timeEntries.push(te);
+        }
     });
 
     return ts;

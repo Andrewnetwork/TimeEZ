@@ -2,8 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="07654d09-8a83-4e04-8c26-f388fac048bd" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/TimeEZ/timer/static/timer/TimeEZ.css" afterPath="$PROJECT_DIR$/TimeEZ/timer/static/timer/TimeEZ.css" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/TimeEZ/timer/static/timer/TimeEZ.js" afterPath="$PROJECT_DIR$/TimeEZ/timer/static/timer/TimeEZ.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/TimeEZ/timer/templates/timer/index.html" afterPath="$PROJECT_DIR$/TimeEZ/timer/templates/timer/index.html" />
     </list>
     <ignored path="Schedule.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -35,10 +37,29 @@
       <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/TimeEZ/timer/templates/timer/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="720">
-              <caret line="49" column="14" selection-start-line="49" selection-start-column="14" selection-end-line="49" selection-end-column="14" />
+            <state relative-caret-position="429">
+              <caret line="85" column="78" selection-start-line="85" selection-start-column="78" selection-end-line="85" selection-end-column="78" />
               <folding>
                 <element signature="n#style#0;n#div#2;n#body#0;n#html#0;n#!!top" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="TimeEZ.js" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/TimeEZ/timer/static/timer/TimeEZ.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="4215">
+              <caret line="397" column="84" selection-start-line="397" selection-start-column="84" selection-end-line="397" selection-end-column="84" />
+              <folding>
+                <element signature="e#0#46#0" expanded="false" />
+                <element signature="e#759#998#0" expanded="false" />
+                <element signature="e#3273#4397#0" expanded="false" />
+                <element signature="n#!!block;n#createTimeSessionLogHTML#0" expanded="false" />
+                <element signature="n#!!block;n#ticker#0" expanded="false" />
+                <element signature="n#!!block;n#hideStartText#0" expanded="false" />
+                <marker date="1462619289000" expanded="true" signature="10513:11060" placeholder="..." />
+                <marker date="1462619289000" expanded="true" signature="13834:13955" placeholder="..." />
               </folding>
             </state>
           </provider>
@@ -47,24 +68,9 @@
       <file leaf-file-name="TimeEZ.css" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/TimeEZ/timer/static/timer/TimeEZ.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="234">
-              <caret line="56" column="15" selection-start-line="56" selection-start-column="15" selection-end-line="56" selection-end-column="15" />
+            <state relative-caret-position="297">
+              <caret line="153" column="22" selection-start-line="153" selection-start-column="22" selection-end-line="153" selection-end-column="22" />
               <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="TimeEZ.js" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/TimeEZ/timer/static/timer/TimeEZ.js">
-          <provider selected="true" editor-type-id="text-editor">
-              <folding>
-                <element signature="e#0#46#0" expanded="false" />
-                <element signature="e#759#998#0" expanded="false" />
-                <element signature="e#2925#4049#0" expanded="false" />
-                <element signature="n#!!block;n#createTimeSessionLogHTML#0" expanded="false" />
-                <element signature="n#!!block;n#ticker#0" expanded="false" />
-                <element signature="n#!!block;n#hideStartText#0" expanded="false" />
-              </folding>
             </state>
           </provider>
         </entry>
@@ -627,10 +633,12 @@
           <folding>
             <element signature="e#0#46#0" expanded="false" />
             <element signature="e#759#998#0" expanded="false" />
-            <element signature="e#2925#4049#0" expanded="false" />
+            <element signature="e#3273#4397#0" expanded="false" />
             <element signature="n#!!block;n#createTimeSessionLogHTML#0" expanded="false" />
             <element signature="n#!!block;n#ticker#0" expanded="false" />
             <element signature="n#!!block;n#hideStartText#0" expanded="false" />
+            <marker date="1462619289000" expanded="true" signature="10513:11060" placeholder="..." />
+            <marker date="1462619289000" expanded="true" signature="13834:13955" placeholder="..." />
           </folding>
         </state>
       </provider>
@@ -704,14 +712,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/TimeEZ/timer/static/timer/TimeEZ.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="234">
-          <caret line="56" column="15" selection-start-line="56" selection-start-column="15" selection-end-line="56" selection-end-column="15" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/TimeEZ/TimeEZ/settings.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1275">
@@ -722,23 +722,35 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/TimeEZ/timer/templates/timer/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="720">
-          <caret line="49" column="14" selection-start-line="49" selection-start-column="14" selection-end-line="49" selection-end-column="14" />
+        <state relative-caret-position="429">
+          <caret line="85" column="78" selection-start-line="85" selection-start-column="78" selection-end-line="85" selection-end-column="78" />
           <folding>
             <element signature="n#style#0;n#div#2;n#body#0;n#html#0;n#!!top" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/TimeEZ/timer/static/timer/TimeEZ.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="297">
+          <caret line="153" column="22" selection-start-line="153" selection-start-column="22" selection-end-line="153" selection-end-column="22" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/TimeEZ/timer/static/timer/TimeEZ.js">
       <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="4215">
+          <caret line="397" column="84" selection-start-line="397" selection-start-column="84" selection-end-line="397" selection-end-column="84" />
           <folding>
             <element signature="e#0#46#0" expanded="false" />
             <element signature="e#759#998#0" expanded="false" />
-            <element signature="e#2925#4049#0" expanded="false" />
+            <element signature="e#3273#4397#0" expanded="false" />
             <element signature="n#!!block;n#createTimeSessionLogHTML#0" expanded="false" />
             <element signature="n#!!block;n#ticker#0" expanded="false" />
             <element signature="n#!!block;n#hideStartText#0" expanded="false" />
+            <marker date="1462619289000" expanded="true" signature="10513:11060" placeholder="..." />
+            <marker date="1462619289000" expanded="true" signature="13834:13955" placeholder="..." />
           </folding>
         </state>
       </provider>
