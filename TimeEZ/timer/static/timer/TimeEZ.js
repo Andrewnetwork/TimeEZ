@@ -50,6 +50,7 @@ window.onbeforeunload = function(){
 function TimeStructure (timeSessionName) {
 
     this.sessionName = timeSessionName;
+    this.isExpanded = false;
 
     this.timeEntries = [];
 
@@ -201,7 +202,9 @@ $(document).ready(function() {
                 timeRef = displayNewTime(ne,$("#ts"+currentTimeSessionID )
                     .find(".timeSessionLog"),currentTimeSessionID ,false,false,currentTimeSessionObj.getEntries().length-1);
 
-                ne.addViewRef("TimeLog",timeRef);
+                //TODO: re-enable when we have the expansion logic sorted out.
+                // Expand the current session upon adding to it.
+                //ne.addViewRef("TimeLog",timeRef);
 
              }else{
                 ts = new TimeStructure(null);
@@ -311,6 +314,8 @@ $(document).ready(function() {
 
         if(obj.sessionName == null){
             // Single Time, not a session.
+            $("#singeTimeModal").modal();
+
             $("#deleteTime").unbind("click");
             $("#deleteTime").click(function () {
 
@@ -323,6 +328,8 @@ $(document).ready(function() {
 
         }else{
             // A session.
+            $("#sessionModal").modal();
+
             $("#deleteSession").unbind("click");
             $("#deleteSession").click(function () {
 
@@ -465,7 +472,7 @@ function displayNewTime(timeEntry, parentID, stateID,includeDateStr, isSingluar,
     // be triggered upon clicking individual times in a session.
     var modalStr ='<div class="timeEntry" id="te'+stateID+''+idPostFix+'">';
     if(isSingluar){
-        modalStr = '<div data-toggle="modal" draggable="true" id="te'+stateID+'" onclick="openModal('+stateID+')" data-target="#singeTimeModal" class="timeEntry">';
+        modalStr = '<div draggable="true" id="te'+stateID+'" onclick="openModal('+stateID+')" class="timeEntry">';
     }
 
     var entry = modalStr+ '<div class="timeEntryLabel">'+timeLabel+'</div>\
@@ -475,7 +482,14 @@ function displayNewTime(timeEntry, parentID, stateID,includeDateStr, isSingluar,
     return $(entry).prependTo(parentID);
 }
 
+// Populate the time log given the state and parent container ID.
 function populateTimeLog(state,timeLogID){
+
+    // Console spice.
+    var css = "font-size: 24px; color:blue;";
+    var css2 = "font-size: 24px; color:green;";
+    var css3 = "font-size: 15px; color:black;";
+    console.log("%cTime"+"%cEZ: "+"%cAndrew Ribeiro", css,css2, css3);
 
     stateCounter = 0;
 
@@ -492,26 +506,15 @@ function populateTimeLog(state,timeLogID){
             }
             else {
                 // Dealing with a time session.
-
                 timeStorageState[stateCounter] = constructFromSeralized(timeState);
                 timeState                      = timeStorageState[stateCounter];
                 entryies = timeState.getEntries();
-
 
                 ts = createTimeSessionLogHTML(stateCounter, timeState.sessionName);
 
                 $(ts).prependTo("#timeLog");
 
-                entryCounter = 0;
-                entryies.forEach(function (entry) {
-                    timeRef = displayNewTime(entry, $("#ts" + stateCounter).find(".timeSessionLog"), stateCounter,false, false,entryCounter);
-
-                    entry.addViewRef("TimeLog",timeRef);
-                    entryCounter++;
-
-                });
-
-                console.log(timeState.getEntries());
+                console.log("Loaded a time session.");
 
                 currentTimeSessionID = timeStorageState.length - 1;
             }
@@ -522,6 +525,52 @@ function populateTimeLog(state,timeLogID){
     });
 
 }
+
+function sessionClick(id,event)
+{
+    if(event.srcElement.className != "btn sessionCollapseBttn close") {
+       openModal(id);
+    }
+    else{
+        expandSession(id);
+    }
+}
+
+function expandSession(stateID)
+{
+    console.log("Expand session: "+stateID);
+
+    // Togle Expanded/Minimized
+    if( timeStorageState[stateID].isExpanded ) {
+
+        $("#ts" + stateID).find(".timeSessionLog").html("");
+
+        $("#ts" + stateID).find('.close').html("+");
+
+        timeStorageState[stateID].isExpanded = false
+    }
+    else {
+        var entryies = timeStorageState[stateID].getEntries();
+
+        entryCounter = 0;
+
+        entryies.forEach(function (entry) {
+            timeRef = displayNewTime(entry, $("#ts" + stateID).find(".timeSessionLog"), stateID,false, false, entryCounter);
+            entry.addViewRef("TimeLog",timeRef);
+            entryCounter++;
+        });
+
+        timeStorageState[stateID].isExpanded = true;
+
+        $("#ts" + stateID).find('.close').html("-");
+    }
+
+    // Unfocus the button.
+    $("#ts" + stateID).find('.close').blur();
+
+}
+
+// TODO: Place this in the TimeStructure class.
 function constructFromSeralized(obj)
 {
     ts = new TimeStructure(obj.sessionName);
@@ -546,9 +595,11 @@ function constructFromSeralized(obj)
     return ts;
 }
 
+// TODO: Perhaps make a helper class with these methods.
 function createTimeSessionLogHTML(currentTimeSesID,sessionName) {
-    var ts = '<div ondrop="drop(event)" ondragover="allowDrop(event)" onclick="openModal('+currentTimeSesID+')" class="timeSession" data-toggle="modal" data-target="#sessionModal" id="ts'+currentTimeSesID+'">';
-        ts += '<div class="sessionName">'+sessionName+'</div>';
+    var ts = '<div ondrop="drop(event)" ondragover="allowDrop(event)" onclick="sessionClick('+currentTimeSesID+',event)" class="timeSession" id="ts'+currentTimeSesID+'">';
+        ts += '<div class="sessionTopBar"><div class="sessionName">'+sessionName+'</div>';
+        ts += '<button class="btn sessionCollapseBttn close">+</button></div>';
         ts += '<div class="timeSessionLog"></div>';
         ts += "</div>";
 

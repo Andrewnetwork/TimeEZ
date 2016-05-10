@@ -112,6 +112,7 @@ div.timeSession:hover
 .sessionName
 {
     font-size: 16px;
+    float: left;
 }
 
 .sessionTags
@@ -174,4 +175,16 @@ div.timeSession:hover
     width:47%;
     font-size:20px;
     font-weight:bold;
+}
+.sessionCollapseBttn
+{
+    float:right;
+    font-size:24px;
+    font-weight:bold;
+}
+
+.sessionTopBar
+{
+    clear: both;
+    height:30px;
 }
