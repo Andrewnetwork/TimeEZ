@@ -38,7 +38,7 @@ text-align:center; margin-top: 1em;
     clear:both;
     border: solid medium #f4f1f2;
     overflow:auto;
-
+    resize:vertical;
 }
 
 .timeEntry

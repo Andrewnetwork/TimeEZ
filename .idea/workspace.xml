@@ -5,7 +5,6 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/TimeEZ/timer/static/timer/TimeEZ.css" afterPath="$PROJECT_DIR$/TimeEZ/timer/static/timer/TimeEZ.css" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/TimeEZ/timer/static/timer/TimeEZ.js" afterPath="$PROJECT_DIR$/TimeEZ/timer/static/timer/TimeEZ.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/TimeEZ/timer/templates/timer/index.html" afterPath="$PROJECT_DIR$/TimeEZ/timer/templates/timer/index.html" />
     </list>
     <ignored path="Schedule.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -33,12 +32,12 @@
     <favorites_list name="Schedule" />
   </component>
   <component name="FileEditorManager">
-    <leaf>
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/TimeEZ/timer/templates/timer/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="429">
-              <caret line="85" column="78" selection-start-line="85" selection-start-column="78" selection-end-line="85" selection-end-column="78" />
+            <state relative-caret-position="1125">
+              <caret line="75" column="12" selection-start-line="75" selection-start-column="12" selection-end-line="75" selection-end-column="12" />
               <folding>
                 <element signature="n#style#0;n#div#2;n#body#0;n#html#0;n#!!top" expanded="true" />
               </folding>
@@ -49,17 +48,16 @@
       <file leaf-file-name="TimeEZ.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/TimeEZ/timer/static/timer/TimeEZ.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="4215">
-              <caret line="397" column="84" selection-start-line="397" selection-start-column="84" selection-end-line="397" selection-end-column="84" />
+            <state relative-caret-position="290">
+              <caret line="597" column="3" selection-start-line="597" selection-start-column="3" selection-end-line="597" selection-end-column="49" />
               <folding>
                 <element signature="e#0#46#0" expanded="false" />
                 <element signature="e#759#998#0" expanded="false" />
                 <element signature="e#3273#4397#0" expanded="false" />
                 <element signature="n#!!block;n#createTimeSessionLogHTML#0" expanded="false" />
-                <element signature="n#!!block;n#ticker#0" expanded="false" />
                 <element signature="n#!!block;n#hideStartText#0" expanded="false" />
-                <marker date="1462619289000" expanded="true" signature="10513:11060" placeholder="..." />
-                <marker date="1462619289000" expanded="true" signature="13834:13955" placeholder="..." />
+                <marker date="1462860412000" expanded="true" signature="10513:11060" placeholder="..." />
+                <marker date="1462860412000" expanded="true" signature="13834:13955" placeholder="..." />
               </folding>
             </state>
           </provider>
@@ -68,8 +66,8 @@
       <file leaf-file-name="TimeEZ.css" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/TimeEZ/timer/static/timer/TimeEZ.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="297">
-              <caret line="153" column="22" selection-start-line="153" selection-start-column="22" selection-end-line="153" selection-end-column="22" />
+            <state relative-caret-position="480">
+              <caret line="40" column="20" selection-start-line="40" selection-start-column="20" selection-end-line="40" selection-end-column="20" />
               <folding />
             </state>
           </provider>
@@ -162,8 +160,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
-      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -268,6 +264,8 @@
           </PATH>
         </subPane>
       </pane>
+      <pane id="Scope" />
+      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -534,24 +532,24 @@
     <frame x="0" y="23" width="1440" height="873" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.18597998" sideWeight="0.5505762" order="0" side_tool="true" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.19027181" sideWeight="0.56577265" order="0" side_tool="true" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3290653" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3290653" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.12875536" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3290653" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.18597998" sideWeight="0.44942382" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.19027181" sideWeight="0.43422732" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3290653" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
     </layout>
     <layout-to-restore>
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -594,6 +592,42 @@
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/TimeEZ/timer/templates/timer/index.html">
       <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="n#style#0;n#div#2;n#body#0;n#html#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/TimeEZ/timer/static/timer/TimeEZ.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="5280">
+          <caret line="397" column="84" selection-start-line="397" selection-start-column="84" selection-end-line="397" selection-end-column="84" />
+          <folding>
+            <element signature="e#0#46#0" expanded="false" />
+            <element signature="e#759#998#0" expanded="false" />
+            <element signature="e#3273#4397#0" expanded="false" />
+            <element signature="n#!!block;n#createTimeSessionLogHTML#0" expanded="false" />
+            <element signature="n#!!block;n#hideStartText#0" expanded="false" />
+            <marker date="1462860412000" expanded="true" signature="10513:11060" placeholder="..." />
+            <marker date="1462860412000" expanded="true" signature="13834:13955" placeholder="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/TimeEZ/timer/templates/timer/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="n#style#0;n#div#2;n#body#0;n#html#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/TimeEZ/timer/templates/timer/index.html">
+      <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="675">
           <caret line="45" column="156" selection-start-line="45" selection-start-column="156" selection-end-line="45" selection-end-column="156" />
           <folding>
@@ -606,7 +640,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="450">
           <caret line="30" column="24" selection-start-line="30" selection-start-column="24" selection-end-line="30" selection-end-column="24" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -622,7 +655,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="255">
           <caret line="17" column="0" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -635,10 +667,9 @@
             <element signature="e#759#998#0" expanded="false" />
             <element signature="e#3273#4397#0" expanded="false" />
             <element signature="n#!!block;n#createTimeSessionLogHTML#0" expanded="false" />
-            <element signature="n#!!block;n#ticker#0" expanded="false" />
             <element signature="n#!!block;n#hideStartText#0" expanded="false" />
-            <marker date="1462619289000" expanded="true" signature="10513:11060" placeholder="..." />
-            <marker date="1462619289000" expanded="true" signature="13834:13955" placeholder="..." />
+            <marker date="1462860412000" expanded="true" signature="10513:11060" placeholder="..." />
+            <marker date="1462860412000" expanded="true" signature="13834:13955" placeholder="..." />
           </folding>
         </state>
       </provider>
@@ -708,7 +739,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="17" column="0" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -716,14 +746,13 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1275">
           <caret line="85" column="21" selection-start-line="85" selection-start-column="21" selection-end-line="85" selection-end-column="21" />
-          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/TimeEZ/timer/templates/timer/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="429">
-          <caret line="85" column="78" selection-start-line="85" selection-start-column="78" selection-end-line="85" selection-end-column="78" />
+        <state relative-caret-position="1125">
+          <caret line="75" column="12" selection-start-line="75" selection-start-column="12" selection-end-line="75" selection-end-column="12" />
           <folding>
             <element signature="n#style#0;n#div#2;n#body#0;n#html#0;n#!!top" expanded="true" />
           </folding>
@@ -732,25 +761,24 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/TimeEZ/timer/static/timer/TimeEZ.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="297">
-          <caret line="153" column="22" selection-start-line="153" selection-start-column="22" selection-end-line="153" selection-end-column="22" />
+        <state relative-caret-position="480">
+          <caret line="40" column="20" selection-start-line="40" selection-start-column="20" selection-end-line="40" selection-end-column="20" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/TimeEZ/timer/static/timer/TimeEZ.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="4215">
-          <caret line="397" column="84" selection-start-line="397" selection-start-column="84" selection-end-line="397" selection-end-column="84" />
+        <state relative-caret-position="290">
+          <caret line="597" column="3" selection-start-line="597" selection-start-column="3" selection-end-line="597" selection-end-column="49" />
           <folding>
             <element signature="e#0#46#0" expanded="false" />
             <element signature="e#759#998#0" expanded="false" />
             <element signature="e#3273#4397#0" expanded="false" />
             <element signature="n#!!block;n#createTimeSessionLogHTML#0" expanded="false" />
-            <element signature="n#!!block;n#ticker#0" expanded="false" />
             <element signature="n#!!block;n#hideStartText#0" expanded="false" />
-            <marker date="1462619289000" expanded="true" signature="10513:11060" placeholder="..." />
-            <marker date="1462619289000" expanded="true" signature="13834:13955" placeholder="..." />
+            <marker date="1462860412000" expanded="true" signature="10513:11060" placeholder="..." />
+            <marker date="1462860412000" expanded="true" signature="13834:13955" placeholder="..." />
           </folding>
         </state>
       </provider>

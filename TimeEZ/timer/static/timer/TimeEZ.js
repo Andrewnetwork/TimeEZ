@@ -595,7 +595,7 @@ function ticker()
         preState = true;
     }
 
-    var minutes = Math.floor(duration / 60);
+    var minutes = Math.floor(duration / 60) % 60;
     var hours   = Math.floor(duration / (60 * 60));
 
 
